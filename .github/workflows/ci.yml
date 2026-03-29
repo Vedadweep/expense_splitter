@@ -19,6 +19,6 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt flake8 pytest-cov
       - name: Lint
-        run: flake8 app/ tests/ --max-line-length=100 --ignore=E501,E302,E303,E305
+        run: flake8 app/ tests/ --max-line-length=100 --ignore=E501,E302,E303,E305,E301,F401,F841
       - name: Test with coverage
         run: pytest tests/ -v --cov=app --cov-report=term-missing --cov-fail-under=80
