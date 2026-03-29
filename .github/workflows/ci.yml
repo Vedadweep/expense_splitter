@@ -1,0 +1,24 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt flake8 pytest-cov
+      - name: Lint
+        run: flake8 app/ tests/ --max-line-length=100 --ignore=E501,E302,E303,E305
+      - name: Test with coverage
+        run: pytest tests/ -v --cov=app --cov-report=term-missing --cov-fail-under=80
