@@ -2,7 +2,7 @@
 
 A clean, production-style microservice for splitting expenses among groups — built with **FastAPI**, **SQLAlchemy**, and a **greedy debt-minimization algorithm** that computes the fewest transactions needed to settle all balances.
 
-![CI](https://github.com/Vedadweep/expense-splitter/actions/workflows/ci.yml/badge.svg)
+
 
 ---
 
